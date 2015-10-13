@@ -1,1 +1,69 @@
 /* Empty. Add your own CSS if you like */
+
+/* Color Scheme 
+
+black : #06000a;
+
+white : #e6e6e8;
+
+peach : #c43235;
+
+purple : #300032;
+
+red : #A53230;
+
+grey : #1f1e25;
+
+*/
+
+body, html {
+    color: #e6e6e8;
+    background: #06000a;
+}
+h1,h2,h3,h4,h5,h6 {
+    color: #e6e6e8;
+    font-weight: 500;
+    text-shadow: inset 1px 2px #1f1e25;
+}
+.centered {
+    text-align: center;
+}
+.pane, .view {
+    color: #e6e6e8;
+    background: rgba(0,0,0,.95);
+}
+/* Headers */
+.bar {
+    border-color: #300032;
+    background: #000000; 
+}
+.bar.bar-stable {
+    background: #000000;
+    border-color: #300032;
+}
+.bar.bar-stable .title {
+    color: #A53230;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.item, .item-content, .list-item {
+    color: #e6e6e8;
+    background: #06000a;
+    border-color: #300032;
+}
+.item-complex .item-content, .item-radio .item-content {
+    color: #e6e6e8;
+    background: #06000a;
+}
+.item-complex:focus .item-content:focus,
+.item-radio:focus .item-content:focus {
+    color: #e6e6e8;
+    background: #06000a;
+}
+.menu-left {
+    background: #06000a;
+    border-right: 1px solid #A53230;
+}
+.menu .scroll-content {
+    border-right: 2px solid #A53230;
+}

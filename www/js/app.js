@@ -1,7 +1,4 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-
+// Ultimate Totals Ionic App
 angular.module('ultimate', [
     'ionic',
     'controllers'
@@ -34,6 +31,7 @@ angular.module('ultimate', [
             url: '/app',
             abstract: true,
             templateUrl: 'templates/menu.html',
+            controller: 'AppCtrl'
         })
 
         .state('app.search', {
@@ -45,35 +43,46 @@ angular.module('ultimate', [
             }
         })
 
-        .state('app.browse', {
-            url: '/browse',
+        .state('app.totals', {
+            url: '/totals',
             views: {
                 'menuContent': {
-                    templateUrl: 'templates/browse.html'
+                    templateUrl: 'templates/totals.html',
+                    controller: 'TotalsCtrl'
                 }
             }
         })
 
-        .state('app.playlists', {
-            url: '/playlists',
+        .state('app.stats', {
+            url: '/stats',
             views: {
                 'menuContent': {
-                    templateUrl: 'templates/playlists.html',
-                    controller: 'PlaylistsCtrl'
+                    templateUrl: 'templates/stats.html',
+                    controller: 'StatsCtrl'
+                }
+            }
+        })
+
+        .state('app.games', {
+            url: '/games',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/games.html',
+                    controller: 'GamesCtrl'
                 }
             }
         })
 
         .state('app.single', {
-            url: '/playlists/:playlistId',
+            url: '/game/:gameId',
             views: {
                 'menuContent': {
-                    templateUrl: 'templates/playlist.html',
-                    controller: 'PlaylistCtrl'
+                    templateUrl: 'templates/game.html',
+                    controller: 'GameCtrl'
                 }
             }
         });
       
-     // default route
-     $urlRouterProvider.otherwise('/app/playlists');
+    // default route
+    $urlRouterProvider.otherwise('/app/totals');
 });

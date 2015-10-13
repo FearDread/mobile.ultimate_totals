@@ -1,5 +1,7 @@
 angular.module('controllers', [
     'controller.app',
-    'controller.playlist',
-    'controller.playlists'
+    'controller.games',
+    'controller.stats',
+    'controller.totals',
+    'controller.bets'
 ]);
