@@ -19,17 +19,17 @@
 
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item>
         <ion-item menu-close href="#/app/odds">
           Odds 
         </ion-item>
         <ion-item menu-close href="#/app/totals">
           Picks 
         </ion-item>
+        <ion-item menu-close href="#/app/totals">
+          Line Watcher 
+        </ion-item>
         <ion-item menu-close href="#/app/bets">
-          My Bets 
+          Bet Tracker 
         </ion-item>
         <ion-item menu-close href="#/app/games">
           My Games 
@@ -41,7 +41,7 @@
     </ion-content>
 
     <ion-footer-bar class="bar bar-footer">
-      <a class="button button-fullwidth button-dark" ui-sref="snd.policy" ng-click="toggleLeft()">Privacy Policy</a>
+      <a class="button button-fullwidth button-dark" ng-click="login()">Login</a>
     </ion-footer-bar>
 
   </ion-side-menu>
