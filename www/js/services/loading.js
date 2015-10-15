@@ -1,5 +1,5 @@
 angular
-    .module('services.loading', [])
+    .module('service.loading', [])
     .factory('LoadingFactory', function($ionicLoading) {
 
         return {
