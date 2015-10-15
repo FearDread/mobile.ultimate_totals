@@ -1,5 +1,5 @@
 angular
-    .module('controller.stats', ['ionic']);
+    .module('controller.stats', ['ionic'])
     .controller('StatsCtrl', function($scope) {
 
         $scope.stats = [
