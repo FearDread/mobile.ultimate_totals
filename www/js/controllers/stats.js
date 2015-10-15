@@ -1,10 +1,10 @@
-var app = angular.module('controller.stats', ['ionic']);
+angular
+    .module('controller.stats', ['ionic']);
+    .controller('StatsCtrl', function($scope) {
 
-app.controller('StatsCtrl', function($scope) {
-
-    $scope.stats = [
-        { title: 'Ranks', id: 1 },
-        { title: 'Schedules', id: 2 },
-        { title: 'Injury Reports', id: 3 }
-    ];
-});
+        $scope.stats = [
+            { title: 'Ranks', id: 1 },
+            { title: 'Schedules', id: 2 },
+            { title: 'Injury Reports', id: 3 }
+        ];
+    });

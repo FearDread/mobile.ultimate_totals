@@ -1,6 +1,5 @@
-var app = angular.module('controller.reports', ['ionic']);
+angular
+    .module('controller.reports', ['ionic']);
+    .controller('ReportsCtrl', function($scope, $stateParams) {
 
-app.controller('ReportsCtrl', function($scope, $stateParams) {
-
-
-});
+    });
