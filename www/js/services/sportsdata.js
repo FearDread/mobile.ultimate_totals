@@ -1,5 +1,5 @@
 angular
     .module('service.sportsdata', [])
-    .factory('SportsDataFactory', function() {
+    .factory('SportsDataFactory', function () {
 
     });

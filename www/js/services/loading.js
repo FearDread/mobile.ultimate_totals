@@ -1,6 +1,6 @@
 angular
     .module('service.loading', [])
-    .factory('LoadingFactory', function($ionicLoading) {
+    .factory('LoadingFactory', function ($ionicLoading) {
 
         return {
             show: function () {
