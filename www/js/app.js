@@ -2,10 +2,19 @@
 angular
     .module('ultimate', [
         'ionic',
+        'services',
         'controllers'
     ])
 
-    .run(function ($ionicPlatform) {
+    .run(function ($ionicPlatform, $timeout, LoadingService) {
+
+        /* Loader testing */
+        LoadingService.show();
+
+        $timeout(function () {
+            /* temp */
+            LoadingService.hide();
+        }, 2000);
 
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard

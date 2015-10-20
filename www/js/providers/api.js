@@ -7,7 +7,7 @@ angular
 
         var config, account;
 
-        accounts = }
+        accounts = {
             pro: false,
             regular: false
         };
@@ -15,8 +15,8 @@ angular
         config = {
             account: 'regular',
             apiKey: null,
-            httpVerb: 'get'
-            base: utconfig.api[utconfig.env].base,
+            httpVerb: 'get',
+            base: utconfig.api[utconfig.env].base
         };
 
         return {
@@ -131,7 +131,7 @@ angular
                  * @param  {int}    id    1 | 2 | 3 | etc
                  * @return {object}       The requested promise
                  */
-                function delete(uri, id) {
+                function destroy(uri, id) {
 
                   return request('delete', uri + '/' + id);
                 }
@@ -140,7 +140,7 @@ angular
                     get: get,
                     post: post,
                     update: update,
-                    delete: delete,
+                    destroy: destroy,
                     request: request,
                     getConfig: getConfig,
                     setConfig: setConfig

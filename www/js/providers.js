@@ -1,4 +1,5 @@
 angular.module('providers', [
     'provider.api',
-    'provider.utils
+    'provider.utils',
+    'provider.storage'
 ]);

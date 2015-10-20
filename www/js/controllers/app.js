@@ -1,6 +1,6 @@
 angular
     .module('controller.app', ['ionic'])
-    .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
+    .controller('AppCtrl', function ($scope, $ionicModal, $timeout, LoadingService) {
 
         // listen for the $ionicView.enter event:
         $scope.$on('$ionicView.enter', function (e) {
