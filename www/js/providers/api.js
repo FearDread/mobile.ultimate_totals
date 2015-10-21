@@ -1,11 +1,11 @@
 /*global utconfig */
 angular
-    .module('prvoider.api', [])
+    .module('provider.api', [])
     .provider('ApiProvider', function () {
 
         "use strict";
 
-        var config, account;
+        var config, accounts;
 
         accounts = {
             pro: false,
@@ -47,13 +47,14 @@ angular
 
                     // Set headers
                     headers = {
-                        'X-User-Authorization': config.keys.api
+                        //'X-User-Authorization': config.keys.api
                     };
 
                   // Create request object
                     httpRequest = {
-                        method: httpVerb,
+                        method: verb,
                         url: endpoint,
+                        port: 4000,
                         headers: headers
                     };
 

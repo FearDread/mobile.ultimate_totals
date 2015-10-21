@@ -1,6 +1,6 @@
 angular
     .module('controller.app', ['ionic'])
-    .controller('AppCtrl', function ($scope, $ionicModal, $timeout, LoadingService) {
+    .controller('AppCtrl', function ($scope, $ionicModal, $timeout, LoadingService, ApiProvider) {
 
         // listen for the $ionicView.enter event:
         $scope.$on('$ionicView.enter', function (e) {
@@ -27,8 +27,12 @@ angular
         $scope.doLogin = function () {
             console.log('Doing login', $scope.loginData);
 
-            $timeout(function () {
-                $scope.closeLogin();
-            }, 1000);
+            ApiProvider
+              .post('login', $scope.loginData)
+              .success(function (response) {
+                  console.log('login res = ', response);
+
+                  $scope.closeLogin();
+              });
         };
     });

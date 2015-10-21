@@ -3,6 +3,7 @@ angular
     .module('ultimate', [
         'ionic',
         'services',
+        'providers',
         'controllers'
     ])
 

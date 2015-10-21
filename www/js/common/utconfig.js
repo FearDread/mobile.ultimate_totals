@@ -11,10 +11,10 @@ var utconfig = {
     },
     api: {
         development: {
-            base: 'http://dev.ghap.com/ut/'
+            base: 'http://dev.ghap.com:4000/ut/'
         },
         production: {
-            base: 'http://api.ghap.com/ut/'
+            base: 'http://api.ghap.com/'
         }
     },
     views: {},
