@@ -28,14 +28,23 @@ h1,h2,h3,h4,h5,h6 {
     margin: 10px 0 10px 0 !important;
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }
+input {
+    color: #e6e6e8 !important;
+}
 .centered {
     text-align: center;
 }
 .sign-up {
     color: #fff;
 }
+.form {
+    padding: 0 15px 0 15px;
+}
 .button-fullwidth {
     width: 100%;
+}
+.form .button-bar {
+    margin-top: 10px;
 }
 .pane, .view {
     color: #e6e6e8;
