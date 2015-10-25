@@ -1,0 +1,34 @@
+<ion-view view-title="Sign Up">
+ <a class="icon ion-chevron-left" href="#/totals"></a>
+  <ion-content>
+    <h4 class="page-title">Join Ultimate Totals</h4>
+    <form id="signup-form" class="form">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">First Name</span>
+            <input type="text" ng-model="signupData.firstName" placeholder="First Name">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Last Name</span>
+            <input type="text" ng-model="signupData.lastName" placeholder="Last Name">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Username</span>
+            <input type="text" ng-model="signupData.username" placeholder="Username">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Email Address</span>
+            <input type="email" ng-model="signupData.email" placeholder="Email Address">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Password</span>
+            <input type="password" ng-model="signupData.password" placeholder="Password">
+        </label>
+        <div class="button-bar">
+          <button class="button button-fullwidth button-dark" ng-click="doCreateUser()">Submit</button>
+        </div>
+        <p class="informative-text centered">* By hitting submit you are agreeing to the Ultimate Totals <a href="/terms">service aggreement.</a></p>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
