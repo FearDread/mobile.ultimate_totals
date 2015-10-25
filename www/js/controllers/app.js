@@ -1,14 +1,13 @@
 angular
-    .module('controller.app', ['ionic'])
-    .controller('AppCtrl', function ($scope, $ionicModal, $timeout, LoadingService, ApiProvider) {
+    .module('controller.app', ['ionic', 'ui.router'])
+    .controller('AppCtrl', function ($scope, $state, $ionicModal, $timeout, LoadingService, ApiProvider) {
 
-        // listen for the $ionicView.enter event:
+        $scope.loginData = {};
+        $scope.signupData = {};
+
         $scope.$on('$ionicView.enter', function (e) {
             console.log('entered menu event, good place to make api calls or ui updates.');
         });
-
-        // Form data for the login modal
-        $scope.loginData = {};
 
         $ionicModal.fromTemplateUrl('templates/modals/login.html', {
             scope: $scope
@@ -20,39 +19,44 @@ angular
             $scope.modal.hide();
         };
 
-        $scope.closeSignup = function () {
-            $scope.signup_modal.hide();
-        };
-
         $scope.login = function () {
             $scope.modal.show();
         };
 
         $scope.signup = function () {
-            console.log('hit signup');
-            $scope.signup_modal = $ionicModal.fromTemplateUrl('templates/modals/signup.html', {
-                scope: $scope
-            }).then(function (modal) {
+            $scope.closeLogin();
 
-                $scope.signup_modal = modal;
-                $scope.signup_modal.show();
-            });
+            $state.go('app.signup');
         };
 
         $scope.doLogin = function () {
-            console.log('Doing login', $scope.loginData);
-
             ApiProvider
               .post('login', $scope.loginData)
               .success(function (response) {
-                  console.log('login res = ', response);
-
-                  $scope.closeLogin();
+                  if (response && response.success) {
+                      $scope.closeLogin();
+                  }
               })
               .error(function (error) {
-                  console.log('login error : ', error);
+                  if (error && error.message) {
+                      $scope.error = error.message;
+                  }
+              });
+        };
 
-                  $scope.closeLogin();
+        $scope.doCreateUser = function () {
+            ApiProvider
+              .post('signup', $scope.signupData)
+              .success(function (response) {
+                  console.log('signup response = ', response);
+                  if (response && response.success) {
+
+                  }
+              })
+              .error(function (error) {
+                  if (error && error.message) {
+                      $scope.error = error.message;
+                  }
               });
         };
     });

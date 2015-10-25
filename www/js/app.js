@@ -45,6 +45,16 @@ angular
                 controller: 'AppCtrl'
             })
 
+            .state('app.signup', {
+                url: '/signup',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/signup.html',
+                        controller: 'AppCtrl'
+                    }
+                }
+            })
+
             .state('app.search', {
                 url: '/search',
                 views: {
