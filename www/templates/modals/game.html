@@ -1,0 +1,25 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">New Game</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeNewGame()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doCreateGame()">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Name</span>
+          <input type="text" ng-model="newGame.name">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Date</span>
+          <input type="date" ng-model="newGame.creation_date" class="datepicker">
+        </label>
+        <label class="item">
+          <button class="button button-block button-dark" type="submit">Create Game</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
