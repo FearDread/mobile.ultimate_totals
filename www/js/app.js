@@ -12,11 +12,6 @@ angular
         /* Loader testing */
         LoadingService.show();
 
-        $timeout(function () {
-            /* temp */
-            LoadingService.hide();
-        }, 2000);
-
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -30,6 +25,8 @@ angular
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+
+            LoadingService.hide();
 
         });
     })

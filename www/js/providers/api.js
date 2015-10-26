@@ -140,6 +140,7 @@ angular
                 return {
                     get: get,
                     post: post,
+                    index: index,
                     update: update,
                     destroy: destroy,
                     request: request,

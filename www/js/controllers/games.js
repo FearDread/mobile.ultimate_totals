@@ -4,48 +4,71 @@ angular
 
         function getMyGames(callback) {
             ApiProvider
-              .get('game')
+              .index('sdata/game')
               .success(function (response) {
+                  console.log('my games = ', response);
+                  if (response && response.success) {
 
+                      if (response.data) {
+                          callback(response.data);
+                      }
+                  } else {
+                      callback();
+                  }
               })
               .error(function (error) {
-
+                  if (error && error.message) {
+                      $scope.error = error.message;
+                  }
+                  callback();
               });
         }
        
         function getUpcommingGames(callback) {
             ApiProvider
-              .get('/sdata/schedule')
-              .success(function (resonse) {
-                  console.log('game schedule = ', response);
+              .index('sdata/schedule')
+              .success(function (response) {
+                  console.log('schedule = ', response);
                   if (response && response.success) {
 
                       if (callback && response.data) {
-
                           callback(response.data);
                       }
+                  } else {
+                      callback();
                   }
               })
               .error(function (error) {
-
+                  if (error && error.message) {
+                      $scope.error = error.message;
+                  }
+                  callback();
               });
         }
 
         LoadingService.show();
 
+        $scope.newGame = {};
+
+        $scope.noGames = null;
+
         getMyGames(function (games) {
+            if (games) {
 
-            $scope.games = games;
-
-            getUpcommingGames(function (data) {
-
-                $scope.schedule = response.data;
-
-                LoadingService.hide();
-            });
+                $scope.games = games;
+            } else {
+                $scope.noGames = true;
+            }
         });
 
-        $scope.newGame = {};
+        getUpcommingGames(function (data) {
+            if (data) {
+
+                $scope.schedule = data;
+
+                LoadingService.hide();
+            }
+        });
 
         $scope.closeNewGame = function () {
             $scope.gameModal.hide();
