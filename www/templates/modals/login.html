@@ -6,15 +6,17 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="doLogin()">
+    <form ng-submit="doLogin()" name="loginForm" novalidate>
       <div class="list">
         <label class="item item-input item-floating-label">
           <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
+          <input type="text" required ng-model="loginData.username" name="username">
+          <p ng-show="loginForm.username.$invalid && !loginForm.username.$pristine && submitted" class="help-block">You username is required.</p>
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
+          <input required name="password" type="password" ng-model="loginData.password">
+          <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine && submitted" class="help-block">You username is required.</p>
         </label>
         <label class="item">
           <button class="button button-block button-dark" type="submit">Log in</button>
