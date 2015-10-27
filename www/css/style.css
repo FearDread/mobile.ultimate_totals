@@ -30,6 +30,21 @@ h1,h2,h3,h4,h5,h6 {
 input {
     color: #e6e6e8 !important;
 }
+::-webkit-input-placeholder {
+    color: #e6e6e8 !important;
+}
+
+:-moz-placeholder {
+    color: #e6e6e8 !important;
+}
+
+::-moz-placeholder {
+    color: #e6e6e8 !important;
+}
+
+:-ms-input-placeholder {
+    color: #e6e6e8 !important;
+}
 .centered {
     text-align: center;
 }
