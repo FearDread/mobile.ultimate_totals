@@ -1,5 +1,5 @@
 angular
-    .module('controller.totals', ['ionic'])
+    .module('controller.totals', ['ionic', 'ui.router'])
     .controller('TotalsCtrl', function($scope, $state, $stateParams, ApiProvider, StorageProvider, Utils, LoadingService) {
 
         function getOdds(callback) {
@@ -31,10 +31,8 @@ angular
         LoadingService.show();
 
         getOdds(function (data) {
-            console.log('odds = ', data);
+            $scope.odds = (data) ? data : null;
+
             LoadingService.hide();
         });
-
-        // temp
-        LoadingService.hide();
     });

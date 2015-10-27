@@ -31,19 +31,19 @@ input {
     color: #e6e6e8 !important;
 }
 ::-webkit-input-placeholder {
-    color: #e6e6e8 !important;
+    color: rgba(245,245,245,.7) !important;
 }
 
 :-moz-placeholder {
-    color: #e6e6e8 !important;
+    color: rgba(245,245,245,.7) !important;
 }
 
 ::-moz-placeholder {
-    color: #e6e6e8 !important;
+    color: rgba(245,245,245,.7) !important;
 }
 
 :-ms-input-placeholder {
-    color: #e6e6e8 !important;
+    color: rgba(245,245,245,.7) !important;
 }
 .centered {
     text-align: center;
