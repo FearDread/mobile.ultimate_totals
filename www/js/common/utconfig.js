@@ -14,7 +14,7 @@ var utconfig = {
             base: 'http://dev.ghap.com:4000/ut/'
         },
         production: {
-            base: 'http://api.ghap.com/'
+            base: 'http://api.ghap.com/ut/'
         }
     },
     views: {},

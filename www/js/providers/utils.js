@@ -4,7 +4,7 @@ angular
 
         return {
 
-            $get: function (StorageProvider) {
+            $get: function ($window, StorageProvider) {
                 var delay;
 
                 delay = (function (callback, ms) {
@@ -25,13 +25,13 @@ angular
 
                     $(function () {
 
-                        $(window).resize(function () {
+                        $($window).resize(function () {
 
-                            $el.height($(window).height());
+                            $el.height($($window).height());
 
                         });
 
-                        $(window).resize();
+                        $($window).resize();
                     });
 
                     if (scroll) {

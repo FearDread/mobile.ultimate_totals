@@ -39,7 +39,9 @@ angular
             teams: null,
             injuries: null,
             schedule: null
-          }
+          },
+          odds: null,
+          schedule: null
         };
 
         function enforce(obj) {
