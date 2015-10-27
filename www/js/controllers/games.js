@@ -2,6 +2,8 @@ angular
     .module('controller.games', ['ionic'])
     .controller('GamesCtrl', function($scope, $stateParams, $ionicModal, ApiProvider, LoadingService, StorageProvider) {
 
+        var schedule;
+
         function getMyGames(callback) {
             ApiProvider
               .index('sdata/game')
@@ -24,27 +26,21 @@ angular
               });
         }
        
-        function getUpcommingGames(callback) {
-            var data = StorageProvider.get('schedule');
-
-            console.log('stored schedule = ', data);
-        }
-
         LoadingService.show();
+
+        schedule = StorageProvider.get('schedule');
 
         $scope.newGame = {};
 
         $scope.noGames = null;
+
+        $scope.schedule = (schedule) ? schedule : null;
 
         getMyGames(function (games) {
             $scope.games = (games) ? games : null;
             $scope.noGames = (!games) ? true : false;
 
             LoadingService.hide();
-        });
-
-        getUpcommingGames(function (data) {
-            $scope.schedule = (data) ? data : null;
         });
 
         $scope.closeNewGame = function () {

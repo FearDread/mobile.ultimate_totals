@@ -62,7 +62,6 @@ angular
                 ApiProvider
                   .post('signup', $scope.signupData)
                   .success(function (response) {
-                      console.log('signup response = ', response);
                       if (response && response.success) {
 
                           $state.go('app.odds');
@@ -70,6 +69,7 @@ angular
                   })
                   .error(function (error) {
                       if (error && error.message) {
+
                           $scope.error = error.message;
                       }
                   });
