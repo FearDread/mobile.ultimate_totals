@@ -2,7 +2,7 @@
  <a class="icon ion-chevron-left" href="#/totals"></a>
   <ion-content>
     <h4 class="page-title">Join Ultimate Totals</h4>
-    <form id="signup-form" class="form">
+    <form id="signup-form" class="form" name="signUpForm" ng-submit="doCreateUser()" novalidate>
       <div class="list">
         <label class="item item-input item-floating-label">
           <span class="input-label">First Name</span>
@@ -15,6 +15,7 @@
         <label class="item item-input item-floating-label">
           <span class="input-label">Username</span>
             <input type="text" ng-model="signupData.username" placeholder="Username">
+              <p ng-show="signUpForm.username.$invalid && !signUpForm.username.$pristine && submitted" class="help-block">You username is required.</p>
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Email Address</span>
@@ -25,7 +26,7 @@
             <input type="password" ng-model="signupData.password" placeholder="Password">
         </label>
         <div class="button-bar">
-          <button class="button button-fullwidth button-dark" ng-click="doCreateUser()">Submit</button>
+          <button class="button button-fullwidth button-dark">Submit</button>
         </div>
         <p class="informative-text centered">* By hitting submit you are agreeing to the Ultimate Totals <a href="#/app/terms">service aggreement.</a></p>
       </div>

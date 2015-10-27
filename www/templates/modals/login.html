@@ -10,12 +10,12 @@
       <div class="list">
         <label class="item item-input item-floating-label">
           <span class="input-label">Username</span>
-          <input type="text" required ng-model="loginData.username" name="username">
+          <input type="text" required ng-model="loginData.username" name="username" placeholder="Username">
           <p ng-show="loginForm.username.$invalid && !loginForm.username.$pristine && submitted" class="help-block">You username is required.</p>
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Password</span>
-          <input required name="password" type="password" ng-model="loginData.password">
+          <input required name="password" type="password" ng-model="loginData.password" placeholder="Password">
           <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine && submitted" class="help-block">You username is required.</p>
         </label>
         <label class="item">
