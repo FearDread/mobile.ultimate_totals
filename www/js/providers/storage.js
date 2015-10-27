@@ -5,7 +5,7 @@ angular
 
         "use strict";
 
-        var keys, defaults;
+        var keys, defaults, storageKey;
 
         keys = {
           development: 'com.ghap.ultimate.development',
