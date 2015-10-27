@@ -1,4 +1,4 @@
-// Ultimate Totals Ionic App
+/* Ultimate Totals Ionic App */
 angular
     .module('ultimate', [
         'ionic',
@@ -7,27 +7,46 @@ angular
         'controllers'
     ])
 
-    .run(function ($ionicPlatform, $timeout, LoadingService) {
-
-        /* Loader testing */
-        LoadingService.show();
+    .run(function ($ionicPlatform, $timeout, LoadingService, ApiProvider, StorageProvider) {
 
         $ionicPlatform.ready(function () {
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-            // for form inputs)
+
+            LoadingService.show();
+
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
-
             }
 
             if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
 
-            LoadingService.hide();
+            if (StorageProvider.get('schedule') === null) {
+                ApiProvider
+                  .index('sdata/schedule')
+                  .success(function (response) {
+                      if (response && response.success) {
+                          if (response.data) {
+                              StorageProvider.set('schedule', response.data);
 
+                              LoadingService.hide();
+                          }
+                      } else {
+                          
+                          LoadingService.hide();
+                      }
+                  })
+                  .error(function (error) {
+                      if (error && error.message) {
+                          $scope.error = error.message;
+                      }
+                      LoadingService.hide();
+                  });
+            } else {
+
+                LoadingService.hide();
+            }
         });
     })
 
@@ -101,6 +120,5 @@ angular
                 }
             });
           
-        // default route
         $urlRouterProvider.otherwise('/app/totals');
     });
