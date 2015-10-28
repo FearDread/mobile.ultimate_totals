@@ -28,15 +28,16 @@ angular
 
         $scope.signup = function () {
             $scope.closeLogin();
+            $scope.submitted = false;
 
             $state.go('app.signup');
         };
 
-        $scope.doLogin = function () {
+        $scope.doLogin = function (valid) {
 
             $scope.submitted = true;
 
-            if ($scope.loginForm.$valid) {
+            if (valid && $scope.submitted) {
 
                 ApiProvider
                   .post('login', $scope.loginData)
@@ -53,11 +54,11 @@ angular
             }
         };
 
-        $scope.doCreateUser = function () {
+        $scope.doCreateUser = function (valid) {
 
             $scope.submitted = true;
 
-            if ($scope.signUpForm.$valid && submitted) {
+            if (valid && $scope.submitted) {
 
                 ApiProvider
                   .post('signup', $scope.signupData)
