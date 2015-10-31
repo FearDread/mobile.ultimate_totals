@@ -2,6 +2,8 @@ angular
     .module('service.loading', [])
     .factory('LoadingService', function ($ionicLoading) {
 
+        "use strict";
+
         return {
             show: function () {
 

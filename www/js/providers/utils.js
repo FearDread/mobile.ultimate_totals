@@ -2,6 +2,8 @@ angular
     .module('provider.utils', [])
     .provider('Utils', function () {
 
+        "use strict";
+
         return {
 
             $get: function ($window, StorageProvider) {
@@ -87,6 +89,12 @@ angular
                     return angular.isString(str);
                 }
 
+                function isInteger(value) {
+                    var regex = /^-?[0-9]+$/;
+
+                    return regex.test(value);
+                }
+
                 function isValidEmail(email) {
                     var regex;
 
@@ -128,6 +136,7 @@ angular
                     isObj: isObj,
                     isFunc: isFunc,
                     isType: isType,
+                    isInteger: isInteger,
                     isValidEmail: isValidEmail
                 };
             }
