@@ -2,6 +2,8 @@ angular
     .module('service.alert', [])
     .factory('AlertService', function ($window) {
 
+        "use strict";
+
         return {
             toast: function (msg) {
 
@@ -14,7 +16,7 @@ angular
                     $window.navigator.notification.alert(
                         msg,
                         false,
-                        'UT Alert',
+                        'Ultimate Totals',
                         'Okay'
                     );
                 }
