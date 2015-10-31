@@ -97,8 +97,45 @@ angular
                     return request('delete', uri + '/' + id);
                 }
 
+                function call(opts) {
+                    var cb, data;
+
+                    cb = [].slice.call(arguments).pop();
+
+                    data = (!opts.id && opts.data) ? opts.data : undefined;
+
+                    opts.uri = (opts.params) ? opts.uri + opts.params : opts.uri;
+
+                    return (function () {
+
+                        opts.type.call(opts.uri, data || opts.id || opts.show, (data) ? undefined : opts.data)
+                        .success(function (response) {
+
+                            if (response.data && response.data[opts.key]) {
+                                if (Utils.isFunc(cb)) {
+                                    cb(response.data[opts.key];
+                                }
+                            } else {
+
+                                cb(response);
+                            }
+                        })
+                        .error(function (response) {
+                            if (response && response.error) {
+
+                                if (Utils.isFunc(cb)) {
+
+                                    cb(response);
+                                }
+                        });
+
+                    })();
+
+                }
+
                 return {
                     get: get,
+                    call: call,
                     post: post,
                     index: index,
                     update: update,
