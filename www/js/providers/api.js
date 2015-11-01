@@ -28,7 +28,7 @@ angular
                 config.keys.api = key;
             },
 
-            $get: function ($q, $window, $http) {
+            $get: function ($q, $window, $http, Utils) {
 
                 function getConfig() {
                     return config;
@@ -105,15 +105,17 @@ angular
                     data = (!opts.id && opts.data) ? opts.data : undefined;
 
                     opts.uri = (opts.params) ? opts.uri + opts.params : opts.uri;
+                    console.log('outside func this = ', this);
 
                     return (function () {
+                        console.log('this = ', this);
 
                         opts.type.call(opts.uri, data || opts.id || opts.show, (data) ? undefined : opts.data)
                         .success(function (response) {
 
                             if (response.data && response.data[opts.key]) {
                                 if (Utils.isFunc(cb)) {
-                                    cb(response.data[opts.key];
+                                    cb(response.data[opts.key]);
                                 }
                             } else {
 
@@ -122,15 +124,12 @@ angular
                         })
                         .error(function (response) {
                             if (response && response.error) {
-
                                 if (Utils.isFunc(cb)) {
-
                                     cb(response);
                                 }
+                            }
                         });
-
                     })();
-
                 }
 
                 return {
