@@ -5,20 +5,31 @@ angular
         function getInjuries(callback) {
             ApiProvider
               .index('sdata/injury')
-              .success(function (response) {
-                  if (response && response.success) {
-                      if (response.data && Utils.isObj(response.data)) {
-                          callback(response.data);
+              .success(function (res) {
+                  if (res&& res.success) {
+                      if (res.data && Utils.isObj(res.data)) {
+                          callback(res.data);
                       }
                   } else {
                       callback();
                   }
               })
-              .error(function (error) {
-                  if (Utils.isObj(error)) {
-                      $scope.error = error;
+              .error(function (err) {
+                  if (Utils.isObj(err)) {
+                      $scope.error = err;
                   }
                   callback();
+              });
+        }
+
+        function searchForInjuries(query, callback) {
+            ApiProvider
+              .index('sdata/injury')
+              .success(function (res) {
+
+              })
+              .error(function (err) {
+
               });
         }
 
@@ -42,5 +53,20 @@ angular
 
             LoadingService.hide();
         });
+
+        $scope.doSearch = function (queryText) {
+            var first, last, query, waitTime;
+
+            query = '';
+            query += queryText;
+
+            waitTime = 500;
+
+            Utils.delay(function () {
+
+                searchForInjries(query);
+
+            }, waitTime);
+        };
 
     });

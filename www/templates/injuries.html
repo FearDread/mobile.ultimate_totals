@@ -1,19 +1,21 @@
 <ion-view view-title="Injury Report">
   <ion-content>
-    <!-- 
-    <ion-list>
-      <ion-item ng-repeat="report in injuries">
-
-      </ion-item>
-    </ion-list>
-    -->
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon fa fa-search input-search-icon"></i>
+        <input type="search" ng-keyup="doSearch(searchText)" ng-model="searchText" placeholder="Search" class="search-friends">
+      </label>
+    </div>
+    
     <div class="cards-container">
-      <div class="card" ng-repeat="report in injuries" data-id="{{ report.id }}">
+      <div class="card" ng-repeat="report in injuries" data-id="{{ report.id }}" ng-model="injuries">
         <div class="item item-divider">
           <h3>{{ report.name }}</h3>
         </div>
         <div class="item item-text-wrap">
+          <ion-list>
           <div class="list">
+            <ion-item>
             <div class="item" ng-repeat="player in report.players">
               <p class="static-p">{{ player.full_name }}</p>
               <div class="container injury-stats" ng-if="player.injuries.length">
@@ -22,7 +24,9 @@
 
               </div>
             </div>
+            </ion-item>
           </div>
+          </ion-list
         </div>
         <div class="item item-divider">
           <span class="text-centered">{{ report.market }}</span>
