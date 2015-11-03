@@ -1,6 +1,6 @@
 {
   "name": "UltimateTotals",
-  "version": "0.0.*",
+  "version": "0.0.5",
   "private": "true",
   "description": "UltimateTotals: An Ionic project to beat the bookies at NBS totals and odds.",
   "dependencies": {
