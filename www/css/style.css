@@ -64,6 +64,10 @@ input {
     color: #e6e6e8;
     background: #06000a;
 }
+.text-centered {
+    text-align: center;
+    margin: 10px auto;
+}
 /* Ionic Overrides */
 .bar {
     border-color: #300032;

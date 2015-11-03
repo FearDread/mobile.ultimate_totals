@@ -54,14 +54,16 @@ angular
             }
         };
 
-        $scope.doCreateUser = function (valid) {
+        $scope.doCreateUser = function (isValid) {
 
             $scope.submitted = true;
+            console.log('submit user : ' + isValid);
 
-            if (valid && $scope.submitted) {
+            if ($scope.submitted) {
+                console.log('is valid');
 
                 ApiProvider
-                  .post('signup', $scope.signupData)
+                  .post('user', $scope.signupData)
                   .success(function (response) {
                       if (response && response.success) {
 
@@ -70,7 +72,6 @@ angular
                   })
                   .error(function (error) {
                       if (error && error.message) {
-
                           $scope.error = error.message;
                       }
                   });
