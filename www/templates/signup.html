@@ -1,12 +1,15 @@
 <ion-view view-title="Sign Up">
  <a class="icon ion-chevron-left" href="#/totals"></a>
   <ion-content>
-    <h4 class="page-title">Join Ultimate Totals</h4>
+    <h4 class="page-title text-centered">Join Ultimate Totals</h4>
     <form id="signup-form" class="form" name="signUpForm" ng-submit="doCreateUser()" novalidate>
       <div class="list">
+        <label class="item item-input" ng-if="error">
+          <span class="text">{{ error }}</span>
+        </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">First Name</span>
-            <input type="text" ng-model="signupData.firstName" placeholder="First Name">
+            <input type="text" required ng-model="signupData.firstName" placeholder="First Name">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Last Name</span>
@@ -14,21 +17,21 @@
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Username</span>
-            <input type="text" ng-model="signupData.username" placeholder="Username">
+            <input type="text" required ng-model="signupData.username" placeholder="Username">
               <p ng-show="signUpForm.username.$invalid && !signUpForm.username.$pristine && submitted" class="help-block">You username is required.</p>
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Email Address</span>
-            <input type="email" ng-model="signupData.email" placeholder="Email Address">
+            <input type="email" required ng-model="signupData.email" placeholder="Email Address">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Password</span>
-            <input type="password" ng-model="signupData.password" placeholder="Password">
+            <input type="password" required ng-model="signupData.password" placeholder="Password">
         </label>
         <div class="button-bar">
           <button class="button button-fullwidth button-dark">Submit</button>
         </div>
-        <p class="informative-text centered">* By hitting submit you are agreeing to the Ultimate Totals <a href="#/app/terms">service aggreement.</a></p>
+        <p class="informative-text text-centered">* By hitting submit you are agreeing to the Ultimate Totals <a href="#/app/terms">service aggreement.</a></p>
       </div>
     </form>
   </ion-content>
