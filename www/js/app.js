@@ -90,12 +90,12 @@ angular
                 }
             })
 
-            .state('app.stats', {
-                url: '/stats',
+            .state('app.injuries', {
+                url: '/injuries',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/stats.html',
-                        controller: 'StatsCtrl'
+                        templateUrl: 'templates/injuries.html',
+                        controller: 'InjuriesCtrl'
                     }
                 }
             })
