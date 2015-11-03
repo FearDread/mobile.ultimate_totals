@@ -1,0 +1,33 @@
+<ion-view view-title="Injury Report">
+  <ion-content>
+    <!-- 
+    <ion-list>
+      <ion-item ng-repeat="report in injuries">
+
+      </ion-item>
+    </ion-list>
+    -->
+    <div class="cards-container">
+      <div class="card" ng-repeat="report in injuries" data-id="{{ report.id }}">
+        <div class="item item-divider">
+          <h3>{{ report.name }}</h3>
+        </div>
+        <div class="item item-text-wrap">
+          <div class="list">
+            <div class="item" ng-repeat="player in report.players">
+              <p class="static-p">{{ player.full_name }}</p>
+              <div class="container injury-stats" ng-if="player.injuries.length">
+                <p class="inner-p">{{ player.injuries[0].desc }}</p>
+                <p class="inner-p">{{ player.injuries[0].comment }}</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item item-divider">
+          <span class="text-centered">{{ report.market }}</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
