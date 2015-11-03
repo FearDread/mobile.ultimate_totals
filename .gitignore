@@ -5,7 +5,6 @@ platforms/
 plugins/
 resources/
 
-www/css/
 www/lib/
 www/js/dist/*
 
