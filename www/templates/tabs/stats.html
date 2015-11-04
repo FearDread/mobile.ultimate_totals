@@ -6,17 +6,16 @@
     </div>
   </ion-content>
   <div class="tabs-striped tabs tabs-icon-only tabs-color-light">
-    <a nav-clear class="tab-item disable-user-behavior" title="Home" nav-clear ui-sref="app.home">
+    <a nav-clear class="tab-item disable-user-behavior" title="Home" nav-clear href="#/app/totals">
       <i class="icon ion-home"></i><span class="tab-title ng-binding" ng-bind-html="title"></span>
     </a>
 
-    <a nav-clear class="tab-item disable-user-behavior active" title="Chat" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" ui-sref="tab.comments">
+    <a nav-clear class="tab-item disable-user-behavior active" title="Chat" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" href="#/app/stats">
       <i class="icon ion-chatbubbles"></i><span class="tab-title ng-binding" ng-bind-html="title"></span>
     </a>
 
-    <a nav-clear class="tab-item disable-user-behavior" title="Basketball" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" ui-sref="tab.ranks">
+    <a href='#/app/ranks' nav-clear class="tab-item disable-user-behavior" title="Basketball" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" >
       <i class="icon ion-ios-basketball"></i><span class="tab-title ng-binding" ng-bind-html="title"></span>
     </a>
   </div>
-
 </ion-view>
