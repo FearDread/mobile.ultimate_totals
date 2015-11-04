@@ -7,18 +7,18 @@ angular
         'controllers'
     ])
 
-    .run(function ($ionicPlatform, $timeout, LoadingService, ApiProvider, StorageProvider) {
+    .run(function ($window, $ionicPlatform, $timeout, LoadingService, ApiProvider, StorageProvider) {
 
         $ionicPlatform.ready(function () {
 
             LoadingService.show();
 
-            if (window.cordova && window.cordova.plugins.Keyboard) {
+            if ($window.cordova && $window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
             }
 
-            if (window.StatusBar) {
+            if ($window.StatusBar) {
                 StatusBar.styleDefault();
             }
 
@@ -28,14 +28,11 @@ angular
                   .success(function (response) {
                       if (response && response.success) {
                           if (response.data) {
-                              StorageProvider.set('schedule', response.data);
 
-                              LoadingService.hide();
+                              StorageProvider.set('schedule', response.data);
                           }
-                      } else {
-                          
-                          LoadingService.hide();
                       }
+                      LoadingService.hide();
                   })
                   .error(function (error) {
                       if (error && error.message) {
@@ -95,10 +92,10 @@ angular
                 }
             })
 
-            .state('tab.ranks', {
+            .state('app.ranks', {
                 url: '/ranks',
                 views: {
-                    'tab-ranks': {
+                    'menuContent': {
                         templateUrl: 'templates/tabs/ranks.html',
                         controller: 'RanksCtrl'
                     }

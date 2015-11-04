@@ -54,12 +54,11 @@ angular
             }
         };
 
-        $scope.doCreateUser = function (isValid) {
+        $scope.doCreateUser = function () {
 
             $scope.submitted = true;
-            console.log('submit user : ' + isValid);
 
-            if ($scope.submitted) {
+            if ($scope.signUpForm.$valid && $scope.submitted) {
                 console.log('is valid');
 
                 ApiProvider
@@ -67,7 +66,7 @@ angular
                   .success(function (response) {
                       if (response && response.success) {
 
-                          $state.go('app.odds');
+                          $state.go('app.totals');
                       }
                   })
                   .error(function (error) {

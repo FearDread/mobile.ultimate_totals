@@ -35,4 +35,12 @@ angular
 
             LoadingService.hide();
         });
+
+        $scope.goToStats = function () {
+            $state.go('app.stats');
+        };
+
+        $scope.goToRanks = function () {
+            $state.go('app.ranks');
+        };
     });
