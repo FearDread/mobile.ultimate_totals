@@ -50,7 +50,12 @@ angular
         });
     })
 
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+        $ionicConfigProvider.views.maxCache(0);
+        $ionicConfigProvider.backButton.icon("ion-ios-arrow-left");
+        $ionicConfigProvider.backButton.text("");
+        $ionicConfigProvider.backButton.previousTitleText(false);
     
         $stateProvider
 
@@ -86,6 +91,36 @@ angular
                     'menuContent': {
                         templateUrl: 'templates/totals.html',
                         controller: 'TotalsCtrl'
+                    }
+                }
+            })
+
+            .state('tab.ranks', {
+                url: '/ranks',
+                views: {
+                    'tab-ranks': {
+                        templateUrl: 'templates/tabs/ranks.html',
+                        controller: 'RanksCtrl'
+                    }
+                }
+            })
+
+            .state('tab.stats', {
+                url: '/stats',
+                views: {
+                    'tab-stats': {
+                        templateUrl: 'templates/tabs/stats.html',
+                        controller: 'StatsCtrl'
+                    }
+                }
+            })
+
+            .state('tab.comments', {
+                url: "/comments",
+                views: {
+                    'tab-comments': {
+                        templateUrl: 'templates/tabs/season.html', 
+                        controller: 'CommentsCtrl' 
                     }
                 }
             })
