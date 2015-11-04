@@ -1,3 +1,22 @@
+<ion-view view-title="Stats">
+  
+  <ion-content class="stats-container">
+    <div class="row padding">
 
-<h1> Stats </h1>
+    </div>
+  </ion-content>
+  <div class="tabs-striped tabs tabs-icon-only tabs-color-light">
+    <a nav-clear class="tab-item disable-user-behavior" title="Home" nav-clear ui-sref="app.home">
+      <i class="icon ion-home"></i><span class="tab-title ng-binding" ng-bind-html="title"></span>
+    </a>
 
+    <a nav-clear class="tab-item disable-user-behavior active" title="Chat" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" ui-sref="tab.comments">
+      <i class="icon ion-chatbubbles"></i><span class="tab-title ng-binding" ng-bind-html="title"></span>
+    </a>
+
+    <a nav-clear class="tab-item disable-user-behavior" title="Basketball" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" ui-sref="tab.ranks">
+      <i class="icon ion-ios-basketball"></i><span class="tab-title ng-binding" ng-bind-html="title"></span>
+    </a>
+  </div>
+
+</ion-view>

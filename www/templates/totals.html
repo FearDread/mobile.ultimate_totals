@@ -1,8 +1,18 @@
 <ion-view view-title="Totals">
-  <ion-content>
-    <h3 class="text-centered">Ultimate Totals</h3>
-    <div class="container odds-container">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-logout" ng-if="auth.loggedIn" ng-click="doLogout()"><span class="octicon octicon-sign-out"></span></button>
+    </ion-nav-buttons>
+  <ion-content class="totals">
+    <ion-refresher
+        pulling-text="Pull to refresh"
+        on-refresh="getSportsData()"
+        spinner="ripple">
+    </ion-refresher>
+    <div class="row padding">
 
+      <div class="container odds-container">
+
+      </div>
     </div>
   </ion-content>
 
@@ -10,10 +20,12 @@
     <a nav-clear class="tab-item disable-user-behavior active" title="Home" nav-clear ui-sref="app.home">
       <i class="icon ion-home"></i><span class="tab-title ng-binding" ng-bind-html="title"></span>
     </a>
-    <a nav-clear class="tab-item disable-user-behavior" title="Chat" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" ui-sref="snd.chat">
+
+    <a nav-clear class="tab-item disable-user-behavior" title="Chat" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" ui-sref="tab.comments">
       <i class="icon ion-chatbubbles"></i><span class="tab-title ng-binding" ng-bind-html="title"></span>
     </a>
-    <a nav-clear class="tab-item disable-user-behavior" title="Basketball" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" ui-sref="tabs.season">
+
+    <a nav-clear class="tab-item disable-user-behavior" title="Basketball" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" ui-sref="tab.ranks">
       <i class="icon ion-ios-basketball"></i><span class="tab-title ng-binding" ng-bind-html="title"></span>
     </a>
   </div>
