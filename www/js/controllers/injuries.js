@@ -39,9 +39,8 @@ angular
 
         getInjuries(function (data) {
             console.log('injuries = ', data);
-            $scope.league = data.league || {};
-
             if (data && data.teams) {
+                $scope.league = data.league || {};
 
                 if (data.teams && data.teams.length > 0) {
 
