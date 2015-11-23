@@ -6,7 +6,6 @@ angular
         'providers',
         'controllers'
     ])
-
     .run(function ($window, $ionicPlatform, $timeout, LoadingService, ApiProvider, StorageProvider) {
 
         $ionicPlatform.ready(function () {
@@ -46,7 +45,6 @@ angular
             }
         });
     })
-
     .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
         $ionicConfigProvider.views.maxCache(0);
